@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>재테크_시작</title>
+  <link rel="stylesheet" href="start.css">
+  <link rel="stylesheet" href="{% static 'css/start.css' %}">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #4A5D4C;
+    }
+
+    .fade-in-box { /*테두리*/
+      color: #FFF2AE;
+      font-size: 70px;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-weight: 600;
+      word-wrap: break-word;
+      text-align: center;
+      border: 10px solid #FFF2AE;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+
+    }
+    .fade-in-box a {
+      color: #FFF2AE;
+      text-decoration: none;
+    }
+
+    .falling-image-container {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: fallAnimation 5s linear infinite;
+    }
+
+    .falling-image-container img {
+      width: 80px; /* Adjust image width as needed */
+      height: auto;
+    }
+
+    @keyframes fallAnimation {
+      0% {
+        transform: translateX(-50%) translateY(-100%);
+      }
+      100% {
+        transform: translateX(-50%) translateY(100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="fade-in-box">
+    <a href="{% url 'home' %}">재(再)테크</a>
+  </div>
+  <div class="falling-image-container">
+    <a href="{% url 'home' %}"><img src="https://i.imgur.com/6FSPESy.png" /></a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head><title>미니게임</title>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  .darken-image-button:hover{
+      filter: brightness(0.7);
+  }
+</style>
+</head>
+
+<body>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+  </style>
+
+  <div style="width: 100%; height: 90px; left: 0px; top: 0px; right: 0px; background: #4A5D4C; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)"></div>
+  <div style="left: 30px; top: 20px; position: absolute; color: #FFF2AE; font-size: 55px; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; word-wrap: break-word">재(再)테크
+  </div>
+
+  <div>
+    <a href="{% url 'home_login' %}"><button class="darken-image-button" type="button" style="background: none; border: none; padding: 0; right: 30px; top: 21px; position: absolute; "><img src="https://i.imgur.com/0Jz8ZBm.png" title="뒤로가기" alt="뒤로가기" style= "width: 65px; height: 65px; cursor: pointer;"/></a></button>
+  </div>
+
+  <!--쓰레기통 목록-->
+  <img id="can" src="https://i.imgur.com/tLYUEEa.png" alt="캔" style="width: 130px; height: 220px; left: 50px; top: 150px; right: 0px; position: absolute;"/>
+
+  <img id="styrofoam" src="https://i.imgur.com/l31vLhF.png" alt="스티로폼" style= "width: 150px; height: 240px; left: 50px; top: 410px; right: 0px; position: absolute;"/>
+
+  <img id="plastic" src="https://i.imgur.com/F23QRXm.png" alt="플라스틱" style= "width: 150px; height: 240px; left: 150px; top: 670px; right: 0px; position: absolute;"/>
+
+  <img id="glass" src="https://i.imgur.com/q0yzWHs.png" alt="유리" style= "width: 150px; height: 240px; left: 450px; top: 670px; right: 0px; position: absolute;"/>
+
+  <img id="paper" src="https://i.imgur.com/t11Tym1.png" alt="종이" style= "width: 150px; height: 240px; left: 750px; top: 670px; right: 0px; position: absolute;"/>
+
+  <img id="lung_medicine" src="https://i.imgur.com/xTfdXIB.png" alt="폐의약품" style= "width: 150px; height: 240px; left: 1050px; top: 670px; right: 0px; position: absolute;"/>
+
+  <img id="clear_plastic" src="https://i.imgur.com/lB00LyC.png" alt="투명 플라스틱" style= "width: 150px; height: 240px; left: 1350px; top: 670px; right: 0px; position: absolute;"/>
+
+  <img id="vinyl" src="https://i.imgur.com/dkEkwZI.png" alt="비닐" style= "width: 150px; height: 240px; left: 1450px; top: 410px; right: 0px; position: absolute;"/>
+
+  <img id="trashcan" src="https://i.imgur.com/po8eXp7.png" alt="일반쓰레기" style= "width: 150px; height: 240px; left: 1450px; top: 150px; right: 0px; position: absolute;"/>
+
+  <!--쓰레기 목록-->
+  <img id="can1" src="https://i.imgur.com/fQ0FKmI.png" title="깨끗한 캔" style="position: absolute; width: 90px; height: 110px; top: 180px; left: 970px; cursor: pointer;">
+
+  <img id="styrofoam1" src="https://i.imgur.com/VVPktEq.png" title="깨끗한 스티로폼 상자" style="position: absolute; width: 180px; height: 150px; top: 320px; Left:230px; cursor: pointer;" >
+
+  <img id="styrofoam2" src="https://i.imgur.com/TLiNn6z.png" title="깨끗한 스티로폼 그릇" style="position: absolute; width: 110px; height: 90px; top: 500px; left:1150px; cursor: pointer;" >
+
+  <img id="plastic1" src="https://i.imgur.com/h6pBVQO.png" title="깨끗한 플라스틱" style="position: absolute; width: 140px; height: 140px; top: 150px; left: 1100px; cursor: pointer;" >
+
+  <img id="glass1" src="https://i.imgur.com/mEjDU5t.png" title="유리병들" style="position: absolute; width: 100px; height: 120px; top: 200px; left:470px; cursor: pointer;" >
+
+  <img id="paper1" src="https://i.imgur.com/TkjwVPU.png" title="신문지" style="position: absolute; width: 140px; height: 100px; top: 370px; left:450px; cursor: pointer;" >
+
+  <img id="paper2" src="https://i.imgur.com/wcP5Cva.png" title="택배박스" style="position: absolute; width: 170px; height: 100px; top: 360px; left:650px; cursor: pointer;" >
+
+  <img id="lung_medicine1" src="https://i.imgur.com/o3PcO0o.png" title="먹고 남은 약" style="position: absolute; width: 130px; height: 50px; top: 200px; left:1260px; cursor: pointer;" >
+
+  <img id="clear_plastic1" src="https://i.imgur.com/RyHid3W.png" title="깨끗한 투명 플라스틱" style="position: absolute; width: 150px; height: 130px; top: 320px; left:1090px; cursor: pointer;" >
+
+  <img id="vinyl1" src="https://i.imgur.com/JkZ8lTU.png" title="깨끗한 투명 비닐" style="position: absolute; width: 110px; height: 110px; top: 230px; left:820px; cursor: pointer;" >
+
+  <img id="vinyl2" src="https://i.imgur.com/Grkfk76.png" title="깨끗한 라면봉지" style="position: absolute; width: 160px; height: 140px; top: 500px; Left:600px; cursor: pointer;" >
+
+  <img id="trashcan1" src="https://i.imgur.com/7uzno2d.png" title="라벨을 뜯지 않은 생수병" style="position: absolute; width: 150px; height: 130px; top: 500px; left:1250px; cursor: pointer;" >
+
+  <img id="trashcan2" src="https://i.imgur.com/2TCN4C2.png" title="음식물이 남아있는 캔" style="position: absolute; width: 150px; height: 120px; top: 300px; left:1250px; cursor: pointer;" >
+
+  <img id="trashcan3" src="https://i.imgur.com/b2nMqAb.png" title="카페 테이크아웃 컵" style="position: absolute; width: 170px; height: 160px; top: 490px; left:810px; cursor: pointer;" >
+
+  <img id="trashcan4" src="https://i.imgur.com/dbzKLsm.png" title="더러운 플라스틱" style="position: absolute; width: 170px; height: 160px; top: 150px; Left:250px; cursor: pointer;" >
+
+  <img id="trashcan5" src="https://i.imgur.com/P1fA9Bs.png" title="식탁보" style="position: absolute; width: 180px; height: 150px; top: 150px; Left:600px; cursor: pointer;" >
+
+  <img id="trashcan6" src="https://i.imgur.com/O8RFiPJ.png" title="영수증" style="position: absolute; width: 150px; height: 130px; top: 350px; left:900px; cursor: pointer;" >
+
+  <img id="trashcan7" src="https://i.imgur.com/2xcRhZe.png" title="음식물이 묻은 비닐" style="position: absolute; width: 150px; height: 120px; top: 520px; Left: 220px; cursor: pointer;" >
+
+  <img id="trashcan8" src="https://i.imgur.com/OTblaXk.png" title="깨진 유리병" style="position: absolute; width: 140px; height: 110px; top: 500px; Left:400px; cursor: pointer;" >
+
+  <img id="trashcan9" src="https://i.imgur.com/ERURSkb.png" title="더러운 컵라면 용기" style="position: absolute; width: 170px; height: 140px; top: 510px; left:970px; cursor: pointer;" >
+
+  <img src="https://i.imgur.com/tg7h3yO.png" alt="점수" style="position: fixed; width: 110px; height: 57px; left: 20px; bottom: 20px;">
+  <img src="https://i.imgur.com/31SovP4.png" alt="남은 쓰레기 수" style="position: fixed; width: 110px; height: 57px; right: 20px; bottom: 20px;">
+
+  <!--<script type="text/javascript" src="/static/js/mini_game.js"></script>-->
+
+  <script>
+        const can = document.getElementById('can');
+    const can1 = document.getElementById('can1');
+    const styrofoam = document.getElementById('styrofoam');
+    const styrofoam1 = document.getElementById('styrofoam1');
+    const styrofoam2 = document.getElementById('styrofoam2');
+    const plastic = document.getElementById('plastic');
+    const plastic1 = document.getElementById('plastic1');
+    const glass = document.getElementById('glass');
+    const glass1 = document.getElementById('glass1');
+    const paper = document.getElementById('paper');
+    const paper1 = document.getElementById('paper1');
+    const paper2 = document.getElementById('paper2');
+    const lung_medicine = document.getElementById('lung_medicine');
+    const lung_medicine1 = document.getElementById('lung_medicine1');
+    const clear_plastic = document.getElementById('clear_plastic');
+    const clear_plastic1 = document.getElementById('clear_plastic1');
+    const vinyl = document.getElementById('vinyl');
+    const vinyl1 = document.getElementById('vinyl1');
+    const vinyl2 = document.getElementById('vinyl2');
+    const trashcan = document.getElementById('trashcan');
+    const trashcan1 = document.getElementById('trashcan1');
+    const trashcan2 = document.getElementById('trashcan2');
+    const trashcan3 = document.getElementById('trashcan3');
+    const trashcan4 = document.getElementById('trashcan4');
+    const trashcan5 = document.getElementById('trashcan5');
+    const trashcan6 = document.getElementById('trashcan6');
+    const trashcan7 = document.getElementById('trashcan7');
+    const trashcan8 = document.getElementById('trashcan8');
+    const trashcan9 = document.getElementById('trashcan9');
+
+    function score_up(){
+        const scoreElement = document.getElementById('score');
+
+        // 현재 화면에 표시된 값
+        let s = scoreElement.innerText;
+        s = parseInt(s) + 10;
+        
+        scoreElement.innerText = s;
+    }
+    function score_down(){
+        const scoreElement = document.getElementById('score');
+
+        // 현재 화면에 표시된 값
+        let s = scoreElement.innerText;
+        s = parseInt(s) - 10;
+        
+        scoreElement.innerText = s;
+    }
+
+    function remain_count() {
+        const remainElement = document.getElementById('remain');
+
+        // 현재 화면에 표시된 값
+        let r = remainElement.innerText;
+        r = parseInt(r) - 1;
+
+        remainElement.innerText = r;
+    }
+
+    let isDragging = false;
+
+    //캔
+    can1.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - can1.getBoundingClientRect().left;
+      const offsetY = e.clientY - can1.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        can1.style.left = `${x}px`;
+        can1.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+
+    //스티로폼
+    styrofoam1.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - styrofoam1.getBoundingClientRect().left;
+      const offsetY = e.clientY - styrofoam1.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        styrofoam1.style.left = `${x}px`;
+        styrofoam1.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+    styrofoam2.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - styrofoam2.getBoundingClientRect().left;
+      const offsetY = e.clientY - styrofoam2.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        styrofoam2.style.left = `${x}px`;
+        styrofoam2.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+
+    //일반 플라스틱
+    plastic1.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - plastic1.getBoundingClientRect().left;
+      const offsetY = e.clientY - plastic1.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        plastic1.style.left = `${x}px`;
+        plastic1.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+
+    //유리
+    glass1.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - glass1.getBoundingClientRect().left;
+      const offsetY = e.clientY - glass1.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        glass1.style.left = `${x}px`;
+        glass1.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+
+    //종이
+    paper1.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - paper1.getBoundingClientRect().left;
+      const offsetY = e.clientY - paper1.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        paper1.style.left = `${x}px`;
+        paper1.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+    paper2.addEventListener('mousedown', (e) => { // Add event listener for styrofoam2
+      isDragging = true;
+      const offsetX = e.clientX - paper2.getBoundingClientRect().left;
+      const offsetY = e.clientY - paper2.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        paper2.style.left = `${x}px`;
+        paper2.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+
+    //약
+    clear_plastic1.addEventListener('mousedown', (e) => { // Add event listener for styrofoam2
+      isDragging = true;
+      const offsetX = e.clientX - clear_plastic1.getBoundingClientRect().left;
+      const offsetY = e.clientY - clear_plastic1.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        clear_plastic1.style.left = `${x}px`;
+        clear_plastic1.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+
+    //투명플라스틱
+    lung_medicine1.addEventListener('mousedown', (e) => { // Add event listener for styrofoam2
+      isDragging = true;
+      const offsetX = e.clientX - lung_medicine1.getBoundingClientRect().left;
+      const offsetY = e.clientY - lung_medicine1.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        lung_medicine1.style.left = `${x}px`;
+        lung_medicine1.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+
+    //비닐
+    vinyl1.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - vinyl1.getBoundingClientRect().left;
+      const offsetY = e.clientY - vinyl1.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        vinyl1.style.left = `${x}px`;
+        vinyl1.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+    vinyl2.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - vinyl2.getBoundingClientRect().left;
+      const offsetY = e.clientY - vinyl2.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        vinyl2.style.left = `${x}px`;
+        vinyl2.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+
+    //일반쓰레기
+    trashcan1.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - trashcan1.getBoundingClientRect().left;
+      const offsetY = e.clientY - trashcan1.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        trashcan1.style.left = `${x}px`;
+        trashcan1.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+    trashcan2.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - trashcan2.getBoundingClientRect().left;
+      const offsetY = e.clientY - trashcan2.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        trashcan2.style.left = `${x}px`;
+        trashcan2.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+    trashcan3.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - trashcan3.getBoundingClientRect().left;
+      const offsetY = e.clientY - trashcan3.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        trashcan3.style.left = `${x}px`;
+        trashcan3.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+    trashcan4.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - trashcan4.getBoundingClientRect().left;
+      const offsetY = e.clientY - trashcan4.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        trashcan4.style.left = `${x}px`;
+        trashcan4.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+    trashcan5.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - trashcan5.getBoundingClientRect().left;
+      const offsetY = e.clientY - trashcan5.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        trashcan5.style.left = `${x}px`;
+        trashcan5.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+    trashcan6.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - trashcan6.getBoundingClientRect().left;
+      const offsetY = e.clientY - trashcan6.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        trashcan6.style.left = `${x}px`;
+        trashcan6.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+    trashcan7.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - trashcan7.getBoundingClientRect().left;
+      const offsetY = e.clientY - trashcan7.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        trashcan7.style.left = `${x}px`;
+        trashcan7.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+    trashcan8.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - trashcan8.getBoundingClientRect().left;
+      const offsetY = e.clientY - trashcan8.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        trashcan8.style.left = `${x}px`;
+        trashcan8.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+    trashcan9.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      const offsetX = e.clientX - trashcan9.getBoundingClientRect().left;
+      const offsetY = e.clientY - trashcan9.getBoundingClientRect().top;
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        if (!isDragging) return;
+
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+
+        trashcan9.style.left = `${x}px`;
+        trashcan9.style.top = `${y}px`;
+
+        checkCollision();
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+    });
+
+
+    //!!쓰레기 충돌
+    function checkCollision() {
+      const canRect = can.getBoundingClientRect();
+      const can1Rect = can1.getBoundingClientRect();
+
+      const styrofoamRect = styrofoam.getBoundingClientRect();
+      const styrofoam1Rect = styrofoam1.getBoundingClientRect();
+      const styrofoam2Rect = styrofoam2.getBoundingClientRect();
+
+      const plasticRect = plastic.getBoundingClientRect();
+      const plastic1Rect = plastic1.getBoundingClientRect();
+
+      const glassRect = glass.getBoundingClientRect();
+      const glass1Rect = glass1.getBoundingClientRect();
+
+      const paperRect = paper.getBoundingClientRect();
+      const paper1Rect = paper1.getBoundingClientRect();
+      const paper2Rect = paper2.getBoundingClientRect();
+
+      const lung_medicineRect = lung_medicine.getBoundingClientRect();
+      const lung_medicine1Rect = lung_medicine1.getBoundingClientRect();
+
+      const clear_plasticRect = clear_plastic.getBoundingClientRect();
+      const clear_plastic1Rect = clear_plastic1.getBoundingClientRect();
+
+      const vinylRect = vinyl.getBoundingClientRect();
+      const vinyl1Rect = vinyl1.getBoundingClientRect();
+      const vinyl2Rect = vinyl2.getBoundingClientRect();
+
+      const trashcanRect = trashcan.getBoundingClientRect();
+      const trashcan1Rect = trashcan1.getBoundingClientRect();
+      const trashcan2Rect = trashcan2.getBoundingClientRect();
+      const trashcan3Rect = trashcan3.getBoundingClientRect();
+      const trashcan4Rect = trashcan4.getBoundingClientRect();
+      const trashcan5Rect = trashcan5.getBoundingClientRect();
+      const trashcan6Rect = trashcan6.getBoundingClientRect();
+      const trashcan7Rect = trashcan7.getBoundingClientRect();
+      const trashcan8Rect = trashcan8.getBoundingClientRect();
+      const trashcan9Rect = trashcan9.getBoundingClientRect();
+
+
+
+      //캔
+      if (
+        can1Rect.left + can1Rect.width > canRect.left &&
+        can1Rect.left < canRect.left + canRect.width &&
+        can1Rect.top + can1Rect.height > canRect.top &&
+        can1Rect.top < canRect.top + canRect.height
+      ) {
+        can1.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+    else if (
+        can1Rect.left + can1Rect.width > styrofoamRect.left &&
+        can1Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        can1Rect.top + can1Rect.height > styrofoamRect.top &&
+        can1Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        can1Rect.left + can1Rect.width > plasticRect.left &&
+        can1Rect.left < plasticRect.left + plasticRect.width &&
+        can1Rect.top + can1Rect.height > plasticRect.top &&
+        can1Rect.top < plasticRect.top + plasticRect.height ||
+
+        can1Rect.left + can1Rect.width > glassRect.left &&
+        can1Rect.left < glassRect.left + glassRect.width &&
+        can1Rect.top + can1Rect.height > glassRect.top &&
+        can1Rect.top < glassRect.top + glassRect.height ||
+
+        can1Rect.left + can1Rect.width > paperRect.left &&
+        can1Rect.left < paperRect.left + paperRect.width &&
+        can1Rect.top + can1Rect.height > paperRect.top &&
+        can1Rect.top < paperRect.top + paperRect.height ||
+
+        can1Rect.left + can1Rect.width > lung_medicineRect.left &&
+        can1Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        can1Rect.top + can1Rect.height > lung_medicineRect.top &&
+        can1Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        can1Rect.left + can1Rect.width > clear_plasticRect.left &&
+        can1Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        can1Rect.top + can1Rect.height > clear_plasticRect.top &&
+        can1Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        can1Rect.left + can1Rect.width > vinylRect.left &&
+        can1Rect.left < vinylRect.left + vinylRect.width &&
+        can1Rect.top + can1Rect.height > vinylRect.top &&
+        can1Rect.top < vinylRect.top + vinylRect.height ||
+
+        can1Rect.left + can1Rect.width > trashcanRect.left &&
+        can1Rect.left < trashcanRect.left + trashcanRect.width &&
+        can1Rect.top + can1Rect.height > trashcanRect.top &&
+        can1Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        can1.style.display = 'none';
+        alert('깨끗한 캔은 캔 재활용 통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+
+      //스티로폼
+      if (
+        styrofoam1Rect.left + styrofoam1Rect.width > styrofoamRect.left &&
+        styrofoam1Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        styrofoam1Rect.top + styrofoam1Rect.height > styrofoamRect.top &&
+        styrofoam1Rect.top < styrofoamRect.top + styrofoamRect.height
+      ) {
+        styrofoam1.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        styrofoam1Rect.left + styrofoam1Rect.width > canRect.left &&
+        styrofoam1Rect.left < canRect.left + canRect.width &&
+        styrofoam1Rect.top + styrofoam1Rect.height > canRect.top &&
+        styrofoam1Rect.top < canRect.top + canRect.height ||
+
+        styrofoam1Rect.left + styrofoam1Rect.width > plasticRect.left &&
+        styrofoam1Rect.left < plasticRect.left + plasticRect.width &&
+        styrofoam1Rect.top + styrofoam1Rect.height > plasticRect.top &&
+        styrofoam1Rect.top < plasticRect.top + plasticRect.height ||
+
+        styrofoam1Rect.left + styrofoam1Rect.width > glassRect.left &&
+        styrofoam1Rect.left < glassRect.left + glassRect.width &&
+        styrofoam1Rect.top + styrofoam1Rect.height > glassRect.top &&
+        styrofoam1Rect.top < glassRect.top + glassRect.height ||
+
+        styrofoam1Rect.left + styrofoam1Rect.width > paperRect.left &&
+        styrofoam1Rect.left < paperRect.left + paperRect.width &&
+        styrofoam1Rect.top + styrofoam1Rect.height > paperRect.top &&
+        styrofoam1Rect.top < paperRect.top + paperRect.height ||
+
+        styrofoam1Rect.left + styrofoam1Rect.width > lung_medicineRect.left &&
+        styrofoam1Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        styrofoam1Rect.top + styrofoam1Rect.height > lung_medicineRect.top &&
+        styrofoam1Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        styrofoam1Rect.left + styrofoam1Rect.width > clear_plasticRect.left &&
+        styrofoam1Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        styrofoam1Rect.top + styrofoam1Rect.height > clear_plasticRect.top &&
+        styrofoam1Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        styrofoam1Rect.left + styrofoam1Rect.width > vinylRect.left &&
+        styrofoam1Rect.left < vinylRect.left + vinylRect.width &&
+        styrofoam1Rect.top + styrofoam1Rect.height > vinylRect.top &&
+        styrofoam1Rect.top < vinylRect.top + vinylRect.height ||
+
+        styrofoam1Rect.left + styrofoam1Rect.width > trashcanRect.left &&
+        styrofoam1Rect.left < trashcanRect.left + trashcanRect.width &&
+        styrofoam1Rect.top + styrofoam1Rect.height > trashcanRect.top &&
+        styrofoam1Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        styrofoam1.style.display = 'none';
+        alert('깨끗한 스티로폼은 스티로폼 재활용 통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+      if (
+        styrofoam2Rect.left + styrofoam2Rect.width > styrofoamRect.left &&
+        styrofoam2Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        styrofoam2Rect.top + styrofoam2Rect.height > styrofoamRect.top &&
+        styrofoam2Rect.top < styrofoamRect.top + styrofoamRect.height
+      ) {
+        styrofoam2.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        styrofoam2Rect.left + styrofoam2Rect.width > canRect.left &&
+        styrofoam2Rect.left < canRect.left + canRect.width &&
+        styrofoam2Rect.top + styrofoam2Rect.height > canRect.top &&
+        styrofoam2Rect.top < canRect.top + canRect.height ||
+
+        styrofoam2Rect.left + styrofoam2Rect.width > plasticRect.left &&
+        styrofoam2Rect.left < plasticRect.left + plasticRect.width &&
+        styrofoam2Rect.top + styrofoam2Rect.height > plasticRect.top &&
+        styrofoam2Rect.top < plasticRect.top + plasticRect.height ||
+
+        styrofoam2Rect.left + styrofoam2Rect.width > glassRect.left &&
+        styrofoam2Rect.left < glassRect.left + glassRect.width &&
+        styrofoam2Rect.top + styrofoam2Rect.height > glassRect.top &&
+        styrofoam2Rect.top < glassRect.top + glassRect.height ||
+
+        styrofoam2Rect.left + styrofoam2Rect.width > paperRect.left &&
+        styrofoam2Rect.left < paperRect.left + paperRect.width &&
+        styrofoam2Rect.top + styrofoam2Rect.height > paperRect.top &&
+        styrofoam2Rect.top < paperRect.top + paperRect.height ||
+
+        styrofoam2Rect.left + styrofoam2Rect.width > lung_medicineRect.left &&
+        styrofoam2Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        styrofoam2Rect.top + styrofoam2Rect.height > lung_medicineRect.top &&
+        styrofoam2Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        styrofoam2Rect.left + styrofoam2Rect.width > clear_plasticRect.left &&
+        styrofoam2Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        styrofoam2Rect.top + styrofoam2Rect.height > clear_plasticRect.top &&
+        styrofoam2Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        styrofoam2Rect.left + styrofoam2Rect.width > vinylRect.left &&
+        styrofoam2Rect.left < vinylRect.left + vinylRect.width &&
+        styrofoam2Rect.top + styrofoam2Rect.height > vinylRect.top &&
+        styrofoam2Rect.top < vinylRect.top + vinylRect.height ||
+
+        styrofoam2Rect.left + styrofoam2Rect.width > trashcanRect.left &&
+        styrofoam2Rect.left < trashcanRect.left + trashcanRect.width &&
+        styrofoam2Rect.top + styrofoam2Rect.height > trashcanRect.top &&
+        styrofoam2Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        styrofoam2.style.display = 'none';
+        alert('깨끗한 스티로폼은 스티로폼 재활용 통에 버려주세요.');
+        score_down();
+        remain_count();
+      }
+      //플라스틱
+      if (
+        plastic1Rect.left + plastic1Rect.width > plasticRect.left &&
+        plastic1Rect.left < plasticRect.left + plasticRect.width &&
+        plastic1Rect.top + plastic1Rect.height > plasticRect.top &&
+        plastic1Rect.top < plasticRect.top + plasticRect.height
+      ) {
+        plastic1.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        plastic1Rect.left + plastic1Rect.width > canRect.left &&
+        plastic1Rect.left < canRect.left + canRect.width &&
+        plastic1Rect.top + plastic1Rect.height > canRect.top &&
+        plastic1Rect.top < canRect.top + canRect.height ||
+
+        plastic1Rect.left + plastic1Rect.width > styrofoamRect.left &&
+        plastic1Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        plastic1Rect.top + plastic1Rect.height > styrofoamRect.top &&
+        plastic1Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        plastic1Rect.left + plastic1Rect.width > glassRect.left &&
+        plastic1Rect.left < glassRect.left + glassRect.width &&
+        plastic1Rect.top + plastic1Rect.height > glassRect.top &&
+        plastic1Rect.top < glassRect.top + glassRect.height ||
+
+        plastic1Rect.left + plastic1Rect.width > paperRect.left &&
+        plastic1Rect.left < paperRect.left + paperRect.width &&
+        plastic1Rect.top + plastic1Rect.height > paperRect.top &&
+        plastic1Rect.top < paperRect.top + paperRect.height ||
+
+        plastic1Rect.left + plastic1Rect.width > lung_medicineRect.left &&
+        plastic1Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        plastic1Rect.top + plastic1Rect.height > lung_medicineRect.top &&
+        plastic1Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        plastic1Rect.left + plastic1Rect.width > clear_plasticRect.left &&
+        plastic1Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        plastic1Rect.top + plastic1Rect.height > clear_plasticRect.top &&
+        plastic1Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        plastic1Rect.left + plastic1Rect.width > vinylRect.left &&
+        plastic1Rect.left < vinylRect.left + vinylRect.width &&
+        plastic1Rect.top + plastic1Rect.height > vinylRect.top &&
+        plastic1Rect.top < vinylRect.top + vinylRect.height ||
+
+        plastic1Rect.left + plastic1Rect.width > trashcanRect.left &&
+        plastic1Rect.left < trashcanRect.left + trashcanRect.width &&
+        plastic1Rect.top + plastic1Rect.height > trashcanRect.top &&
+        plastic1Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        plastic1.style.display = 'none';
+        alert('재활용 마크에 플라스틱이라 되어있는 것은 깨끗이 씻어서 플라스틱 재활용 통에 버려주세요.');
+        score_down();
+        remain_count();
+      }
+
+      //유리
+      if (
+        glass1Rect.left + glass1Rect.width > glassRect.left &&
+        glass1Rect.left < glassRect.left + glassRect.width &&
+        glass1Rect.top + glass1Rect.height > glassRect.top &&
+        glass1Rect.top < glassRect.top + glassRect.height
+      ) {
+        glass1.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        glass1Rect.left + glass1Rect.width > canRect.left &&
+        glass1Rect.left < canRect.left + canRect.width &&
+        glass1Rect.top + glass1Rect.height > canRect.top &&
+        glass1Rect.top < canRect.top + canRect.height ||
+
+        glass1Rect.left + glass1Rect.width > styrofoamRect.left &&
+        glass1Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        glass1Rect.top + glass1Rect.height > styrofoamRect.top &&
+        glass1Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        glass1Rect.left + glass1Rect.width > plasticRect.left &&
+        glass1Rect.left < plasticRect.left + plasticRect.width &&
+        glass1Rect.top + glass1Rect.height > plasticRect.top &&
+        glass1Rect.top < plasticRect.top + plasticRect.height ||
+
+        glass1Rect.left + glass1Rect.width > paperRect.left &&
+        glass1Rect.left < paperRect.left + paperRect.width &&
+        glass1Rect.top + glass1Rect.height > paperRect.top &&
+        glass1Rect.top < paperRect.top + paperRect.height ||
+
+        glass1Rect.left + glass1Rect.width > lung_medicineRect.left &&
+        glass1Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        glass1Rect.top + glass1Rect.height > lung_medicineRect.top &&
+        glass1Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        glass1Rect.left + glass1Rect.width > clear_plasticRect.left &&
+        glass1Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        glass1Rect.top + glass1Rect.height > clear_plasticRect.top &&
+        glass1Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        glass1Rect.left + glass1Rect.width > vinylRect.left &&
+        glass1Rect.left < vinylRect.left + vinylRect.width &&
+        glass1Rect.top + glass1Rect.height > vinylRect.top &&
+        glass1Rect.top < vinylRect.top + vinylRect.height ||
+
+        glass1Rect.left + glass1Rect.width > trashcanRect.left &&
+        glass1Rect.left < trashcanRect.left + trashcanRect.width &&
+        glass1Rect.top + glass1Rect.height > trashcanRect.top &&
+        glass1Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        glass1.style.display = 'none';
+        alert('깨끗한 유리는 유리 재활용 통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+      //종이
+      if (
+        paper1Rect.left + paper1Rect.width > paperRect.left &&
+        paper1Rect.left < paperRect.left + paperRect.width &&
+        paper1Rect.top + paper1Rect.height > paperRect.top &&
+        paper1Rect.top < paperRect.top + paperRect.height
+      ) {
+        paper1.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        paper1Rect.left + paper1Rect.width > canRect.left &&
+        paper1Rect.left < canRect.left + canRect.width &&
+        paper1Rect.top + paper1Rect.height > canRect.top &&
+        paper1Rect.top < canRect.top + canRect.height ||
+
+        paper1Rect.left + paper1Rect.width > styrofoamRect.left &&
+        paper1Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        paper1Rect.top + paper1Rect.height > styrofoamRect.top &&
+        paper1Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        paper1Rect.left + paper1Rect.width > plasticRect.left &&
+        paper1Rect.left < plasticRect.left + plasticRect.width &&
+        paper1Rect.top + paper1Rect.height > plasticRect.top &&
+        paper1Rect.top < plasticRect.top + plasticRect.height ||
+
+        paper1Rect.left + paper1Rect.width > glassRect.left &&
+        paper1Rect.left < glassRect.left + glassRect.width &&
+        paper1Rect.top + paper1Rect.height > glassRect.top &&
+        paper1Rect.top < glassRect.top + glassRect.height ||
+
+        paper1Rect.left + paper1Rect.width > lung_medicineRect.left &&
+        paper1Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        paper1Rect.top + paper1Rect.height > lung_medicineRect.top &&
+        paper1Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        paper1Rect.left + paper1Rect.width > clear_plasticRect.left &&
+        paper1Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        paper1Rect.top + paper1Rect.height > clear_plasticRect.top &&
+        paper1Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        paper1Rect.left + paper1Rect.width > vinylRect.left &&
+        paper1Rect.left < vinylRect.left + vinylRect.width &&
+        paper1Rect.top + paper1Rect.height > vinylRect.top &&
+        paper1Rect.top < vinylRect.top + vinylRect.height ||
+
+        paper1Rect.left + paper1Rect.width > trashcanRect.left &&
+        paper1Rect.left < trashcanRect.left + trashcanRect.width &&
+        paper1Rect.top + paper1Rect.height > trashcanRect.top &&
+        paper1Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        paper1.style.display = 'none';
+        alert('신문지는 종이 재활용 통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+      if (
+        paper2Rect.left + paper2Rect.width > paperRect.left &&
+        paper2Rect.left < paperRect.left + paperRect.width &&
+        paper2Rect.top + paper2Rect.height > paperRect.top &&
+        paper2Rect.top < paperRect.top + paperRect.height
+      ) {
+        paper2.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        paper2Rect.left + paper2Rect.width > canRect.left &&
+        paper2Rect.left < canRect.left + canRect.width &&
+        paper2Rect.top + paper2Rect.height > canRect.top &&
+        paper2Rect.top < canRect.top + canRect.height ||
+
+        paper2Rect.left + paper2Rect.width > styrofoamRect.left &&
+        paper2Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        paper2Rect.top + paper2Rect.height > styrofoamRect.top &&
+        paper2Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        paper2Rect.left + paper2Rect.width > plasticRect.left &&
+        paper2Rect.left < plasticRect.left + plasticRect.width &&
+        paper2Rect.top + paper2Rect.height > plasticRect.top &&
+        paper2Rect.top < plasticRect.top + plasticRect.height ||
+
+        paper2Rect.left + paper2Rect.width > glassRect.left &&
+        paper2Rect.left < glassRect.left + glassRect.width &&
+        paper2Rect.top + paper2Rect.height > glassRect.top &&
+        paper2Rect.top < glassRect.top + glassRect.height ||
+
+        paper2Rect.left + paper2Rect.width > lung_medicineRect.left &&
+        paper2Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        paper2Rect.top + paper2Rect.height > lung_medicineRect.top &&
+        paper2Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        paper2Rect.left + paper2Rect.width > clear_plasticRect.left &&
+        paper2Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        paper2Rect.top + paper2Rect.height > clear_plasticRect.top &&
+        paper2Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        paper2Rect.left + paper2Rect.width > vinylRect.left &&
+        paper2Rect.left < vinylRect.left + vinylRect.width &&
+        paper2Rect.top + paper2Rect.height > vinylRect.top &&
+        paper2Rect.top < vinylRect.top + vinylRect.height ||
+
+        paper2Rect.left + paper2Rect.width > trashcanRect.left &&
+        paper2Rect.left < trashcanRect.left + trashcanRect.width &&
+        paper2Rect.top + paper2Rect.height > trashcanRect.top &&
+        paper2Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        paper2.style.display = 'none';
+        alert('스티커나 테이프가 붙어있지 않은 깨끗한 택배박스는 종이 재활용 통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+      //약
+      if (
+        lung_medicine1Rect.left + lung_medicine1Rect.width > lung_medicineRect.left &&
+        lung_medicine1Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        lung_medicine1Rect.top + lung_medicine1Rect.height > lung_medicineRect.top &&
+        lung_medicine1Rect.top < lung_medicineRect.top + lung_medicineRect.height
+      ) {
+        lung_medicine1.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        lung_medicine1Rect.left + lung_medicine1Rect.width > canRect.left &&
+        lung_medicine1Rect.left < canRect.left + canRect.width &&
+        lung_medicine1Rect.top + lung_medicine1Rect.height > canRect.top &&
+        lung_medicine1Rect.top < canRect.top + canRect.height ||
+
+        lung_medicine1Rect.left + lung_medicine1Rect.width > styrofoamRect.left &&
+        lung_medicine1Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        lung_medicine1Rect.top + lung_medicine1Rect.height > styrofoamRect.top &&
+        lung_medicine1Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        lung_medicine1Rect.left + lung_medicine1Rect.width > plasticRect.left &&
+        lung_medicine1Rect.left < plasticRect.left + plasticRect.width &&
+        lung_medicine1Rect.top + lung_medicine1Rect.height > plasticRect.top &&
+        lung_medicine1Rect.top < plasticRect.top + plasticRect.height ||
+
+        lung_medicine1Rect.left + lung_medicine1Rect.width > glassRect.left &&
+        lung_medicine1Rect.left < glassRect.left + glassRect.width &&
+        lung_medicine1Rect.top + lung_medicine1Rect.height > glassRect.top &&
+        lung_medicine1Rect.top < glassRect.top + glassRect.height ||
+
+        lung_medicine1Rect.left + lung_medicine1Rect.width > paperRect.left &&
+        lung_medicine1Rect.left < paperRect.left + paperRect.width &&
+        lung_medicine1Rect.top + lung_medicine1Rect.height > paperRect.top &&
+        lung_medicine1Rect.top < paperRect.top + paperRect.height ||
+
+        lung_medicine1Rect.left + lung_medicine1Rect.width > clear_plasticRect.left &&
+        lung_medicine1Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        lung_medicine1Rect.top + lung_medicine1Rect.height > clear_plasticRect.top &&
+        lung_medicine1Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        lung_medicine1Rect.left + lung_medicine1Rect.width > vinylRect.left &&
+        lung_medicine1Rect.left < vinylRect.left + vinylRect.width &&
+        lung_medicine1Rect.top + lung_medicine1Rect.height > vinylRect.top &&
+        lung_medicine1Rect.top < vinylRect.top + vinylRect.height ||
+
+        lung_medicine1Rect.left + lung_medicine1Rect.width > trashcanRect.left &&
+        lung_medicine1Rect.left < trashcanRect.left + trashcanRect.width &&
+        lung_medicine1Rect.top + lung_medicine1Rect.height > trashcanRect.top &&
+        lung_medicine1Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        lung_medicine1.style.display = 'none';
+        alert('먹다 남은 약은 폐의약품 재활용 통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+      //투명플라스틱
+      if (
+        clear_plastic1Rect.left + clear_plastic1Rect.width > clear_plasticRect.left &&
+        clear_plastic1Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        clear_plastic1Rect.top + clear_plastic1Rect.height > clear_plasticRect.top &&
+        clear_plastic1Rect.top < clear_plasticRect.top + clear_plasticRect.height
+      ) {
+        clear_plastic1.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        clear_plastic1Rect.left + clear_plastic1Rect.width > canRect.left &&
+        clear_plastic1Rect.left < canRect.left + canRect.width &&
+        clear_plastic1Rect.top + clear_plastic1Rect.height > canRect.top &&
+        clear_plastic1Rect.top < canRect.top + canRect.height ||
+
+        clear_plastic1Rect.left + clear_plastic1Rect.width > styrofoamRect.left &&
+        clear_plastic1Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        clear_plastic1Rect.top + clear_plastic1Rect.height > styrofoamRect.top &&
+        clear_plastic1Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        clear_plastic1Rect.left + clear_plastic1Rect.width > plasticRect.left &&
+        clear_plastic1Rect.left < plasticRect.left + plasticRect.width &&
+        clear_plastic1Rect.top + clear_plastic1Rect.height > plasticRect.top &&
+        clear_plastic1Rect.top < plasticRect.top + plasticRect.height ||
+
+        clear_plastic1Rect.left + clear_plastic1Rect.width > glassRect.left &&
+        clear_plastic1Rect.left < glassRect.left + glassRect.width &&
+        clear_plastic1Rect.top + clear_plastic1Rect.height > glassRect.top &&
+        clear_plastic1Rect.top < glassRect.top + glassRect.height ||
+
+        clear_plastic1Rect.left + clear_plastic1Rect.width > paperRect.left &&
+        clear_plastic1Rect.left < paperRect.left + paperRect.width &&
+        clear_plastic1Rect.top + clear_plastic1Rect.height > paperRect.top &&
+        clear_plastic1Rect.top < paperRect.top + paperRect.height ||
+
+        clear_plastic1Rect.left + clear_plastic1Rect.width > lung_medicineRect.left &&
+        clear_plastic1Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        clear_plastic1Rect.top + clear_plastic1Rect.height > lung_medicineRect.top &&
+        clear_plastic1Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        clear_plastic1Rect.left + clear_plastic1Rect.width > vinylRect.left &&
+        clear_plastic1Rect.left < vinylRect.left + vinylRect.width &&
+        clear_plastic1Rect.top + clear_plastic1Rect.height > vinylRect.top &&
+        clear_plastic1Rect.top < vinylRect.top + vinylRect.height ||
+
+        clear_plastic1Rect.left + clear_plastic1Rect.width > trashcanRect.left &&
+        clear_plastic1Rect.left < trashcanRect.left + trashcanRect.width &&
+        clear_plastic1Rect.top + clear_plastic1Rect.height > trashcanRect.top &&
+        clear_plastic1Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        clear_plastic1.style.display = 'none';
+        alert('투명 플라스틱은 일반 플라스틱과 따로 배출해야 합니다. 투명 플라스틱 재활용 통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+      //비닐
+      if (
+        vinyl1Rect.left + vinyl1Rect.width > vinylRect.left &&
+        vinyl1Rect.left < vinylRect.left + vinylRect.width &&
+        vinyl1Rect.top + vinyl1Rect.height > vinylRect.top &&
+        vinyl1Rect.top < vinylRect.top + vinylRect.height
+      ) {
+        vinyl1.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        vinyl1Rect.left + vinyl1Rect.width > canRect.left &&
+        vinyl1Rect.left < canRect.left + canRect.width &&
+        vinyl1Rect.top + vinyl1Rect.height > canRect.top &&
+        vinyl1Rect.top < canRect.top + canRect.height ||
+
+        vinyl1Rect.left + vinyl1Rect.width > styrofoamRect.left &&
+        vinyl1Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        vinyl1Rect.top + vinyl1Rect.height > styrofoamRect.top &&
+        vinyl1Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        vinyl1Rect.left + vinyl1Rect.width > plasticRect.left &&
+        vinyl1Rect.left < plasticRect.left + plasticRect.width &&
+        vinyl1Rect.top + vinyl1Rect.height > plasticRect.top &&
+        vinyl1Rect.top < plasticRect.top + plasticRect.height ||
+
+        vinyl1Rect.left + vinyl1Rect.width > glassRect.left &&
+        vinyl1Rect.left < glassRect.left + glassRect.width &&
+        vinyl1Rect.top + vinyl1Rect.height > glassRect.top &&
+        vinyl1Rect.top < glassRect.top + glassRect.height ||
+
+        vinyl1Rect.left + vinyl1Rect.width > paperRect.left &&
+        vinyl1Rect.left < paperRect.left + paperRect.width &&
+        vinyl1Rect.top + vinyl1Rect.height > paperRect.top &&
+        vinyl1Rect.top < paperRect.top + paperRect.height ||
+
+        vinyl1Rect.left + vinyl1Rect.width > lung_medicineRect.left &&
+        vinyl1Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        vinyl1Rect.top + vinyl1Rect.height > lung_medicineRect.top &&
+        vinyl1Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        vinyl1Rect.left + vinyl1Rect.width > clear_plasticRect.left &&
+        vinyl1Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        vinyl1Rect.top + vinyl1Rect.height > clear_plasticRect.top &&
+        vinyl1Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        vinyl1Rect.left + vinyl1Rect.width > trashcanRect.left &&
+        vinyl1Rect.left < trashcanRect.left + trashcanRect.width &&
+        vinyl1Rect.top + vinyl1Rect.height > trashcanRect.top &&
+        vinyl1Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        vinyl1.style.display = 'none';
+        alert('깨끗한 비닐은 비닐 재활용 통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+      if (
+        vinyl2Rect.left + vinyl2Rect.width > vinylRect.left &&
+        vinyl2Rect.left < vinylRect.left + vinylRect.width &&
+        vinyl2Rect.top + vinyl2Rect.height > vinylRect.top &&
+        vinyl2Rect.top < vinylRect.top + vinylRect.height
+      ) {
+        vinyl2.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        vinyl2Rect.left + vinyl2Rect.width > canRect.left &&
+        vinyl2Rect.left < canRect.left + canRect.width &&
+        vinyl2Rect.top + vinyl2Rect.height > canRect.top &&
+        vinyl2Rect.top < canRect.top + canRect.height ||
+
+        vinyl2Rect.left + vinyl2Rect.width > styrofoamRect.left &&
+        vinyl2Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        vinyl2Rect.top + vinyl2Rect.height > styrofoamRect.top &&
+        vinyl2Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        vinyl2Rect.left + vinyl2Rect.width > plasticRect.left &&
+        vinyl2Rect.left < plasticRect.left + plasticRect.width &&
+        vinyl2Rect.top + vinyl2Rect.height > plasticRect.top &&
+        vinyl2Rect.top < plasticRect.top + plasticRect.height ||
+
+        vinyl2Rect.left + vinyl2Rect.width > glassRect.left &&
+        vinyl2Rect.left < glassRect.left + glassRect.width &&
+        vinyl2Rect.top + vinyl2Rect.height > glassRect.top &&
+        vinyl2Rect.top < glassRect.top + glassRect.height ||
+
+        vinyl2Rect.left + vinyl2Rect.width > paperRect.left &&
+        vinyl2Rect.left < paperRect.left + paperRect.width &&
+        vinyl2Rect.top + vinyl2Rect.height > paperRect.top &&
+        vinyl2Rect.top < paperRect.top + paperRect.height ||
+
+        vinyl2Rect.left + vinyl2Rect.width > lung_medicineRect.left &&
+        vinyl2Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        vinyl2Rect.top + vinyl2Rect.height > lung_medicineRect.top &&
+        vinyl2Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        vinyl2Rect.left + vinyl2Rect.width > clear_plasticRect.left &&
+        vinyl2Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        vinyl2Rect.top + vinyl2Rect.height > clear_plasticRect.top &&
+        vinyl2Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        vinyl2Rect.left + vinyl2Rect.width > trashcanRect.left &&
+        vinyl2Rect.left < trashcanRect.left + trashcanRect.width &&
+        vinyl2Rect.top + vinyl2Rect.height > trashcanRect.top &&
+        vinyl2Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        vinyl2.style.display = 'none';
+        alert('깨끗한 비닐은 비닐 재활용 통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+      //일반쓰레기
+      if (
+        trashcan1Rect.left + trashcan1Rect.width > trashcanRect.left &&
+        trashcan1Rect.left < trashcanRect.left + trashcanRect.width &&
+        trashcan1Rect.top + trashcan1Rect.height > trashcanRect.top &&
+        trashcan1Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        trashcan1.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        trashcan1Rect.left + trashcan1Rect.width > canRect.left &&
+        trashcan1Rect.left < canRect.left + canRect.width &&
+        trashcan1Rect.top + trashcan1Rect.height > canRect.top &&
+        trashcan1Rect.top < canRect.top + canRect.height ||
+
+        trashcan1Rect.left + trashcan1Rect.width > styrofoamRect.left &&
+        trashcan1Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        trashcan1Rect.top + trashcan1Rect.height > styrofoamRect.top &&
+        trashcan1Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        trashcan1Rect.left + trashcan1Rect.width > plasticRect.left &&
+        trashcan1Rect.left < plasticRect.left + plasticRect.width &&
+        trashcan1Rect.top + trashcan1Rect.height > plasticRect.top &&
+        trashcan1Rect.top < plasticRect.top + plasticRect.height ||
+
+        trashcan1Rect.left + trashcan1Rect.width > glassRect.left &&
+        trashcan1Rect.left < glassRect.left + glassRect.width &&
+        trashcan1Rect.top + trashcan1Rect.height > glassRect.top &&
+        trashcan1Rect.top < glassRect.top + glassRect.height ||
+
+        trashcan1Rect.left + trashcan1Rect.width > paperRect.left &&
+        trashcan1Rect.left < paperRect.left + paperRect.width &&
+        trashcan1Rect.top + trashcan1Rect.height > paperRect.top &&
+        trashcan1Rect.top < paperRect.top + paperRect.height ||
+
+        trashcan1Rect.left + trashcan1Rect.width > lung_medicineRect.left &&
+        trashcan1Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        trashcan1Rect.top + trashcan1Rect.height > lung_medicineRect.top &&
+        trashcan1Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        trashcan1Rect.left + trashcan1Rect.width > clear_plasticRect.left &&
+        trashcan1Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        trashcan1Rect.top + trashcan1Rect.height > clear_plasticRect.top &&
+        trashcan1Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        trashcan1Rect.left + trashcan1Rect.width > vinylRect.left &&
+        trashcan1Rect.left < vinylRect.left + vinylRect.width &&
+        trashcan1Rect.top + trashcan1Rect.height > vinylRect.top &&
+        trashcan1Rect.top < vinylRect.top + vinylRect.height
+      ) {
+        trashcan1.style.display = 'none';
+        alert('라벨이 붙어있는 생수병은 라벨을 제거한 후에 재활용 가능합니다!.');
+        score_down();
+        remain_count();
+      }
+      if (
+        trashcan2Rect.left + trashcan2Rect.width > trashcanRect.left &&
+        trashcan2Rect.left < trashcanRect.left + trashcanRect.width &&
+        trashcan2Rect.top + trashcan2Rect.height > trashcanRect.top &&
+        trashcan2Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        trashcan2.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        trashcan2Rect.left + trashcan2Rect.width > canRect.left &&
+        trashcan2Rect.left < canRect.left + canRect.width &&
+        trashcan2Rect.top + trashcan2Rect.height > canRect.top &&
+        trashcan2Rect.top < canRect.top + canRect.height ||
+
+        trashcan2Rect.left + trashcan2Rect.width > styrofoamRect.left &&
+        trashcan2Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        trashcan2Rect.top + trashcan2Rect.height > styrofoamRect.top &&
+        trashcan2Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        trashcan2Rect.left + trashcan2Rect.width > plasticRect.left &&
+        trashcan2Rect.left < plasticRect.left + plasticRect.width &&
+        trashcan2Rect.top + trashcan2Rect.height > plasticRect.top &&
+        trashcan2Rect.top < plasticRect.top + plasticRect.height ||
+
+        trashcan2Rect.left + trashcan2Rect.width > glassRect.left &&
+        trashcan2Rect.left < glassRect.left + glassRect.width &&
+        trashcan2Rect.top + trashcan2Rect.height > glassRect.top &&
+        trashcan2Rect.top < glassRect.top + glassRect.height ||
+
+        trashcan2Rect.left + trashcan2Rect.width > paperRect.left &&
+        trashcan2Rect.left < paperRect.left + paperRect.width &&
+        trashcan2Rect.top + trashcan2Rect.height > paperRect.top &&
+        trashcan2Rect.top < paperRect.top + paperRect.height ||
+
+        trashcan2Rect.left + trashcan2Rect.width > lung_medicineRect.left &&
+        trashcan2Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        trashcan2Rect.top + trashcan2Rect.height > lung_medicineRect.top &&
+        trashcan2Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        trashcan2Rect.left + trashcan2Rect.width > clear_plasticRect.left &&
+        trashcan2Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        trashcan2Rect.top + trashcan2Rect.height > clear_plasticRect.top &&
+        trashcan2Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        trashcan2Rect.left + trashcan2Rect.width > vinylRect.left &&
+        trashcan2Rect.left < vinylRect.left + vinylRect.width &&
+        trashcan2Rect.top + trashcan2Rect.height > vinylRect.top &&
+        trashcan2Rect.top < vinylRect.top + vinylRect.height
+      ) {
+        trashcan2.style.display = 'none';
+        alert('깨끗한 캔은 캔 재활용 통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+      if (
+        trashcan3Rect.left + trashcan3Rect.width > trashcanRect.left &&
+        trashcan3Rect.left < trashcanRect.left + trashcanRect.width &&
+        trashcan3Rect.top + trashcan3Rect.height > trashcanRect.top &&
+        trashcan3Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        trashcan3.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        trashcan3Rect.left + trashcan3Rect.width > canRect.left &&
+        trashcan3Rect.left < canRect.left + canRect.width &&
+        trashcan3Rect.top + trashcan3Rect.height > canRect.top &&
+        trashcan3Rect.top < canRect.top + canRect.height ||
+
+        trashcan3Rect.left + trashcan3Rect.width > styrofoamRect.left &&
+        trashcan3Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        trashcan3Rect.top + trashcan3Rect.height > styrofoamRect.top &&
+        trashcan3Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        trashcan3Rect.left + trashcan3Rect.width > plasticRect.left &&
+        trashcan3Rect.left < plasticRect.left + plasticRect.width &&
+        trashcan3Rect.top + trashcan3Rect.height > plasticRect.top &&
+        trashcan3Rect.top < plasticRect.top + plasticRect.height ||
+
+        trashcan3Rect.left + trashcan3Rect.width > glassRect.left &&
+        trashcan3Rect.left < glassRect.left + glassRect.width &&
+        trashcan3Rect.top + trashcan3Rect.height > glassRect.top &&
+        trashcan3Rect.top < glassRect.top + glassRect.height ||
+
+        trashcan3Rect.left + trashcan3Rect.width > paperRect.left &&
+        trashcan3Rect.left < paperRect.left + paperRect.width &&
+        trashcan3Rect.top + trashcan3Rect.height > paperRect.top &&
+        trashcan3Rect.top < paperRect.top + paperRect.height ||
+
+        trashcan3Rect.left + trashcan3Rect.width > lung_medicineRect.left &&
+        trashcan3Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        trashcan3Rect.top + trashcan3Rect.height > lung_medicineRect.top &&
+        trashcan3Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        trashcan3Rect.left + trashcan3Rect.width > clear_plasticRect.left &&
+        trashcan3Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        trashcan3Rect.top + trashcan3Rect.height > clear_plasticRect.top &&
+        trashcan3Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        trashcan3Rect.left + trashcan3Rect.width > vinylRect.left &&
+        trashcan3Rect.left < vinylRect.left + vinylRect.width &&
+        trashcan3Rect.top + trashcan3Rect.height > vinylRect.top &&
+        trashcan3Rect.top < vinylRect.top + vinylRect.height
+      ) {
+        trashcan3.style.display = 'none';
+        alert('카페 테이크 아웃 컵은 일반 플라스틱과 녹는점이 다르기 때문에 일반 쓰레기통에 버려야 합니다!');
+        score_down();
+        remain_count();
+      }
+      if (
+        trashcan4Rect.left + trashcan4Rect.width > trashcanRect.left &&
+        trashcan4Rect.left < trashcanRect.left + trashcanRect.width &&
+        trashcan4Rect.top + trashcan4Rect.height > trashcanRect.top &&
+        trashcan4Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        trashcan4.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        trashcan4Rect.left + trashcan4Rect.width > canRect.left &&
+        trashcan4Rect.left < canRect.left + canRect.width &&
+        trashcan4Rect.top + trashcan4Rect.height > canRect.top &&
+        trashcan4Rect.top < canRect.top + canRect.height ||
+
+        trashcan4Rect.left + trashcan4Rect.width > styrofoamRect.left &&
+        trashcan4Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        trashcan4Rect.top + trashcan4Rect.height > styrofoamRect.top &&
+        trashcan4Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        trashcan4Rect.left + trashcan4Rect.width > plasticRect.left &&
+        trashcan4Rect.left < plasticRect.left + plasticRect.width &&
+        trashcan4Rect.top + trashcan4Rect.height > plasticRect.top &&
+        trashcan4Rect.top < plasticRect.top + plasticRect.height ||
+
+        trashcan4Rect.left + trashcan4Rect.width > glassRect.left &&
+        trashcan4Rect.left < glassRect.left + glassRect.width &&
+        trashcan4Rect.top + trashcan4Rect.height > glassRect.top &&
+        trashcan4Rect.top < glassRect.top + glassRect.height ||
+
+        trashcan4Rect.left + trashcan4Rect.width > paperRect.left &&
+        trashcan4Rect.left < paperRect.left + paperRect.width &&
+        trashcan4Rect.top + trashcan4Rect.height > paperRect.top &&
+        trashcan4Rect.top < paperRect.top + paperRect.height ||
+
+        trashcan4Rect.left + trashcan4Rect.width > lung_medicineRect.left &&
+        trashcan4Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        trashcan4Rect.top + trashcan4Rect.height > lung_medicineRect.top &&
+        trashcan4Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        trashcan4Rect.left + trashcan4Rect.width > clear_plasticRect.left &&
+        trashcan4Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        trashcan4Rect.top + trashcan4Rect.height > clear_plasticRect.top &&
+        trashcan4Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        trashcan4Rect.left + trashcan4Rect.width > vinylRect.left &&
+        trashcan4Rect.left < vinylRect.left + vinylRect.width &&
+        trashcan4Rect.top + trashcan4Rect.height > vinylRect.top &&
+        trashcan4Rect.top < vinylRect.top + vinylRect.height
+      ) {
+        trashcan4.style.display = 'none';
+        alert('깨끗한 스티로폼만 스티로폼 재활용 통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+      if (
+        trashcan5Rect.left + trashcan5Rect.width > trashcanRect.left &&
+        trashcan5Rect.left < trashcanRect.left + trashcanRect.width &&
+        trashcan5Rect.top + trashcan5Rect.height > trashcanRect.top &&
+        trashcan5Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        trashcan5.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        trashcan5Rect.left + trashcan5Rect.width > canRect.left &&
+        trashcan5Rect.left < canRect.left + canRect.width &&
+        trashcan5Rect.top + trashcan5Rect.height > canRect.top &&
+        trashcan5Rect.top < canRect.top + canRect.height ||
+
+        trashcan5Rect.left + trashcan5Rect.width > styrofoamRect.left &&
+        trashcan5Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        trashcan5Rect.top + trashcan5Rect.height > styrofoamRect.top &&
+        trashcan5Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        trashcan5Rect.left + trashcan5Rect.width > plasticRect.left &&
+        trashcan5Rect.left < plasticRect.left + plasticRect.width &&
+        trashcan5Rect.top + trashcan5Rect.height > plasticRect.top &&
+        trashcan5Rect.top < plasticRect.top + plasticRect.height ||
+
+        trashcan5Rect.left + trashcan5Rect.width > glassRect.left &&
+        trashcan5Rect.left < glassRect.left + glassRect.width &&
+        trashcan5Rect.top + trashcan5Rect.height > glassRect.top &&
+        trashcan5Rect.top < glassRect.top + glassRect.height ||
+
+        trashcan5Rect.left + trashcan5Rect.width > paperRect.left &&
+        trashcan5Rect.left < paperRect.left + paperRect.width &&
+        trashcan5Rect.top + trashcan5Rect.height > paperRect.top &&
+        trashcan5Rect.top < paperRect.top + paperRect.height ||
+
+        trashcan5Rect.left + trashcan5Rect.width > lung_medicineRect.left &&
+        trashcan5Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        trashcan5Rect.top + trashcan5Rect.height > lung_medicineRect.top &&
+        trashcan5Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        trashcan5Rect.left + trashcan5Rect.width > clear_plasticRect.left &&
+        trashcan5Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        trashcan5Rect.top + trashcan5Rect.height > clear_plasticRect.top &&
+        trashcan5Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        trashcan5Rect.left + trashcan5Rect.width > vinylRect.left &&
+        trashcan5Rect.left < vinylRect.left + vinylRect.width &&
+        trashcan5Rect.top + trashcan5Rect.height > vinylRect.top &&
+        trashcan5Rect.top < vinylRect.top + vinylRect.height
+      ) {
+        trashcan5.style.display = 'none';
+        alert('식탁보는 일반 쓰레기에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+      if (
+        trashcan6Rect.left + trashcan6Rect.width > trashcanRect.left &&
+        trashcan6Rect.left < trashcanRect.left + trashcanRect.width &&
+        trashcan6Rect.top + trashcan6Rect.height > trashcanRect.top &&
+        trashcan6Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        trashcan6.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        trashcan6Rect.left + trashcan6Rect.width > canRect.left &&
+        trashcan6Rect.left < canRect.left + canRect.width &&
+        trashcan6Rect.top + trashcan6Rect.height > canRect.top &&
+        trashcan6Rect.top < canRect.top + canRect.height ||
+
+        trashcan6Rect.left + trashcan6Rect.width > styrofoamRect.left &&
+        trashcan6Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        trashcan6Rect.top + trashcan6Rect.height > styrofoamRect.top &&
+        trashcan6Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        trashcan6Rect.left + trashcan6Rect.width > plasticRect.left &&
+        trashcan6Rect.left < plasticRect.left + plasticRect.width &&
+        trashcan6Rect.top + trashcan6Rect.height > plasticRect.top &&
+        trashcan6Rect.top < plasticRect.top + plasticRect.height ||
+
+        trashcan6Rect.left + trashcan6Rect.width > glassRect.left &&
+        trashcan6Rect.left < glassRect.left + glassRect.width &&
+        trashcan6Rect.top + trashcan6Rect.height > glassRect.top &&
+        trashcan6Rect.top < glassRect.top + glassRect.height ||
+
+        trashcan6Rect.left + trashcan6Rect.width > paperRect.left &&
+        trashcan6Rect.left < paperRect.left + paperRect.width &&
+        trashcan6Rect.top + trashcan6Rect.height > paperRect.top &&
+        trashcan6Rect.top < paperRect.top + paperRect.height ||
+
+        trashcan6Rect.left + trashcan6Rect.width > lung_medicineRect.left &&
+        trashcan6Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        trashcan6Rect.top + trashcan6Rect.height > lung_medicineRect.top &&
+        trashcan6Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        trashcan6Rect.left + trashcan6Rect.width > clear_plasticRect.left &&
+        trashcan6Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        trashcan6Rect.top + trashcan6Rect.height > clear_plasticRect.top &&
+        trashcan6Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        trashcan6Rect.left + trashcan6Rect.width > vinylRect.left &&
+        trashcan6Rect.left < vinylRect.left + vinylRect.width &&
+        trashcan6Rect.top + trashcan6Rect.height > vinylRect.top &&
+        trashcan6Rect.top < vinylRect.top + vinylRect.height
+      ) {
+        trashcan6.style.display = 'none';
+        alert('영수증은 합성재로 코팅되어 있기 때문에, 재활용이 불가능합니다. 일반 쓰레기통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+      if (
+        trashcan7Rect.left + trashcan7Rect.width > trashcanRect.left &&
+        trashcan7Rect.left < trashcanRect.left + trashcanRect.width &&
+        trashcan7Rect.top + trashcan7Rect.height > trashcanRect.top &&
+        trashcan7Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        trashcan7.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        trashcan7Rect.left + trashcan7Rect.width > canRect.left &&
+        trashcan7Rect.left < canRect.left + canRect.width &&
+        trashcan7Rect.top + trashcan7Rect.height > canRect.top &&
+        trashcan7Rect.top < canRect.top + canRect.height ||
+
+        trashcan7Rect.left + trashcan7Rect.width > styrofoamRect.left &&
+        trashcan7Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        trashcan7Rect.top + trashcan7Rect.height > styrofoamRect.top &&
+        trashcan7Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        trashcan7Rect.left + trashcan7Rect.width > plasticRect.left &&
+        trashcan7Rect.left < plasticRect.left + plasticRect.width &&
+        trashcan7Rect.top + trashcan7Rect.height > plasticRect.top &&
+        trashcan7Rect.top < plasticRect.top + plasticRect.height ||
+
+        trashcan7Rect.left + trashcan7Rect.width > glassRect.left &&
+        trashcan7Rect.left < glassRect.left + glassRect.width &&
+        trashcan7Rect.top + trashcan7Rect.height > glassRect.top &&
+        trashcan7Rect.top < glassRect.top + glassRect.height ||
+
+        trashcan7Rect.left + trashcan7Rect.width > paperRect.left &&
+        trashcan7Rect.left < paperRect.left + paperRect.width &&
+        trashcan7Rect.top + trashcan7Rect.height > paperRect.top &&
+        trashcan7Rect.top < paperRect.top + paperRect.height ||
+
+        trashcan7Rect.left + trashcan7Rect.width > lung_medicineRect.left &&
+        trashcan7Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        trashcan7Rect.top + trashcan7Rect.height > lung_medicineRect.top &&
+        trashcan7Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        trashcan7Rect.left + trashcan7Rect.width > clear_plasticRect.left &&
+        trashcan7Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        trashcan7Rect.top + trashcan7Rect.height > clear_plasticRect.top &&
+        trashcan7Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        trashcan7Rect.left + trashcan7Rect.width > vinylRect.left &&
+        trashcan7Rect.left < vinylRect.left + vinylRect.width &&
+        trashcan7Rect.top + trashcan7Rect.height > vinylRect.top &&
+        trashcan7Rect.top < vinylRect.top + vinylRect.height
+      ) {
+        trashcan7.style.display = 'none';
+        alert('비닐은 깨끗하게 씻어서 비닐 재활용 통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+      if (
+        trashcan8Rect.left + trashcan8Rect.width > trashcanRect.left &&
+        trashcan8Rect.left < trashcanRect.left + trashcanRect.width &&
+        trashcan8Rect.top + trashcan8Rect.height > trashcanRect.top &&
+        trashcan8Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        trashcan8.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        trashcan8Rect.left + trashcan8Rect.width > canRect.left &&
+        trashcan8Rect.left < canRect.left + canRect.width &&
+        trashcan8Rect.top + trashcan8Rect.height > canRect.top &&
+        trashcan8Rect.top < canRect.top + canRect.height ||
+
+        trashcan8Rect.left + trashcan8Rect.width > styrofoamRect.left &&
+        trashcan8Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        trashcan8Rect.top + trashcan8Rect.height > styrofoamRect.top &&
+        trashcan8Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        trashcan8Rect.left + trashcan8Rect.width > plasticRect.left &&
+        trashcan8Rect.left < plasticRect.left + plasticRect.width &&
+        trashcan8Rect.top + trashcan8Rect.height > plasticRect.top &&
+        trashcan8Rect.top < plasticRect.top + plasticRect.height ||
+
+        trashcan8Rect.left + trashcan8Rect.width > glassRect.left &&
+        trashcan8Rect.left < glassRect.left + glassRect.width &&
+        trashcan8Rect.top + trashcan8Rect.height > glassRect.top &&
+        trashcan8Rect.top < glassRect.top + glassRect.height ||
+
+        trashcan8Rect.left + trashcan8Rect.width > paperRect.left &&
+        trashcan8Rect.left < paperRect.left + paperRect.width &&
+        trashcan8Rect.top + trashcan8Rect.height > paperRect.top &&
+        trashcan8Rect.top < paperRect.top + paperRect.height ||
+
+        trashcan8Rect.left + trashcan8Rect.width > lung_medicineRect.left &&
+        trashcan8Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        trashcan8Rect.top + trashcan8Rect.height > lung_medicineRect.top &&
+        trashcan8Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        trashcan8Rect.left + trashcan8Rect.width > clear_plasticRect.left &&
+        trashcan8Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        trashcan8Rect.top + trashcan8Rect.height > clear_plasticRect.top &&
+        trashcan8Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        trashcan8Rect.left + trashcan8Rect.width > vinylRect.left &&
+        trashcan8Rect.left < vinylRect.left + vinylRect.width &&
+        trashcan8Rect.top + trashcan8Rect.height > vinylRect.top &&
+        trashcan8Rect.top < vinylRect.top + vinylRect.height
+      ) {
+        trashcan8.style.display = 'none';
+        alert('깨진 유리병은 신문지로 잘 감싸서 일반 쓰레기통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+      if (
+        trashcan9Rect.left + trashcan9Rect.width > trashcanRect.left &&
+        trashcan9Rect.left < trashcanRect.left + trashcanRect.width &&
+        trashcan9Rect.top + trashcan9Rect.height > trashcanRect.top &&
+        trashcan9Rect.top < trashcanRect.top + trashcanRect.height
+      ) {
+        trashcan9.style.display = 'none';
+        alert('완벽한 재활용입니다.')
+        score_up();
+        remain_count();
+      }
+      else if (
+        trashcan9Rect.left + trashcan9Rect.width > canRect.left &&
+        trashcan9Rect.left < canRect.left + canRect.width &&
+        trashcan9Rect.top + trashcan9Rect.height > canRect.top &&
+        trashcan9Rect.top < canRect.top + canRect.height ||
+
+        trashcan9Rect.left + trashcan9Rect.width > styrofoamRect.left &&
+        trashcan9Rect.left < styrofoamRect.left + styrofoamRect.width &&
+        trashcan9Rect.top + trashcan9Rect.height > styrofoamRect.top &&
+        trashcan9Rect.top < styrofoamRect.top + styrofoamRect.height ||
+
+        trashcan9Rect.left + trashcan9Rect.width > plasticRect.left &&
+        trashcan9Rect.left < plasticRect.left + plasticRect.width &&
+        trashcan9Rect.top + trashcan9Rect.height > plasticRect.top &&
+        trashcan9Rect.top < plasticRect.top + plasticRect.height ||
+
+        trashcan9Rect.left + trashcan9Rect.width > glassRect.left &&
+        trashcan9Rect.left < glassRect.left + glassRect.width &&
+        trashcan9Rect.top + trashcan9Rect.height > glassRect.top &&
+        trashcan9Rect.top < glassRect.top + glassRect.height ||
+
+        trashcan9Rect.left + trashcan9Rect.width > paperRect.left &&
+        trashcan9Rect.left < paperRect.left + paperRect.width &&
+        trashcan9Rect.top + trashcan9Rect.height > paperRect.top &&
+        trashcan9Rect.top < paperRect.top + paperRect.height ||
+
+        trashcan9Rect.left + trashcan9Rect.width > lung_medicineRect.left &&
+        trashcan9Rect.left < lung_medicineRect.left + lung_medicineRect.width &&
+        trashcan9Rect.top + trashcan9Rect.height > lung_medicineRect.top &&
+        trashcan9Rect.top < lung_medicineRect.top + lung_medicineRect.height ||
+
+        trashcan9Rect.left + trashcan9Rect.width > clear_plasticRect.left &&
+        trashcan9Rect.left < clear_plasticRect.left + clear_plasticRect.width &&
+        trashcan9Rect.top + trashcan9Rect.height > clear_plasticRect.top &&
+        trashcan9Rect.top < clear_plasticRect.top + clear_plasticRect.height ||
+
+        trashcan9Rect.left + trashcan9Rect.width > vinylRect.left &&
+        trashcan9Rect.left < vinylRect.left + vinylRect.width &&
+        trashcan9Rect.top + trashcan9Rect.height > vinylRect.top &&
+        trashcan9Rect.top < vinylRect.top + vinylRect.height
+      ) {
+        trashcan9.style.display = 'none';
+        alert('더러운 컵라면 용기는 깨끗이 씻어서 일반 쓰레기통에 버려주세요!');
+        score_down();
+        remain_count();
+      }
+    }
+  </script>
+
+  <div id="score" style="left: 56px; bottom: 32px; position: fixed; color: #4A5D4C; font-size: 30px; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; word-wrap: break-word">0</div>
+
+  <div id="remain" style="right: 80px; bottom: 32px; position: fixed; color: #FFF2AE; font-size: 30px; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; word-wrap: break-word">20</div>
+  <div id="remain" style="right: 30px; bottom: 32px; position: fixed; color: #FFF2AE; font-size: 30px; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; word-wrap: break-word">/20</div>
+
+</body>
+</html>

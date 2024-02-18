@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+        input[type=radio] {width: 20px; height: 20px; vertical-align: middle; margin: 0 5px 0 0; vertical-align: top;}
+        #box1 { 
+            width: 100%;
+            background-color: #4A5D4C;
+            border-radius: 30px;
+            border-style: solid;
+            border-width: 20px;
+            border-color: #BEC8A3;
+        }
+        #question{
+            border-radius: 5px;
+            background-color: whitesmoke;
+            padding: 20px 40px 20px 40px;
+            margin: 30px 50px;
+        }
+    </style>
+
+<div style="width: 100%; height: 90px; left: 0px; top: 0px; right: 0px; background: #4A5D4C; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)"></div>
+<div style="left: 30px; top: 20px; position: absolute; color: #FFF2AE; font-size: 55px; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; word-wrap: break-word">재(再)테크
+</div>
+
+<div>
+  <a href="{% url 'home_login' %}"><button class="darken-image-button" type="button" style="background: none; border: none; padding: 0; right: 30px; top: 21px; position: absolute; "><img src="https://i.imgur.com/0Jz8ZBm.png" title="뒤로가기" alt="뒤로가기" style= "width: 65px; height: 65px; cursor: pointer;"/></a></button>
+</div>
+
+    <div id="box1" style="width: 1300px; height: auto; padding: 7px 12px 7px 12px; position: absolute; top: 150px; left: 170px;">
+    <br><br>
+        <div style="font-size: 30px; text-align: center; font-weight: bolder; margin-bottom: 10px; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; color: #FFF2AE;"> 만족도 조사 </div>
+        <br><br>
+
+    <form action="{% url 'survey:vote' question.id %}" method="post">
+        {% csrf_token %}
+
+        <div style= "font-family: 'Nanum Gothic', sans-serif; font-weight: bolder; margin-top: 7px;">
+        <fieldset>
+            <legend style="font-family: 'Nanum Gothic', sans-serif; color: #FFF2AE;"><h1>{{ question.question_text }}</h1></legend>
+            {% if error_message %}<p style="color: #FFF2AE;"><strong>{{ error_message }}</strong></p>{% endif %}
+            {% for choice in question.choice_set.all %}
+                <input style="font-family: 'Nanum Gothic', sans-serif;" type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                <label for="choice{{ forloop.counter }}" style="font-family: 'Nanum Gothic', sans-serif; color: #FFF2AE;">{{ choice.choice_text }}</label><br>
+                <br>
+            {% endfor %}
+        </fieldset>
+        </div>
+
+        <div style="text-align: center; margin-top: 15px;">
+            <input type="submit" value="제출" style="background-color: #FFF2AE; font-family: 'Nanum Gothic', sans-serif; font-weight: 600; font-size: 20px; padding: 7px; width: 10%;">
+        </div>
+    </form>
+</body>

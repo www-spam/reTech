@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>회원가입</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+		.darken-image-button:hover{
+  			filter: brightness(0.7);
+		}
+		body {
+			background-color: #DDD6BE; /* 원하는 배경색의 색상 코드를 입력합니다 */
+		}
+	</style>
+</head>
+<body>
+	<div style="width: 100%; height: 90px; left: 0px; top: 0px; right: 0px; background: #4A5D4C; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)"></div>
+  <div style="left: 30px; top: 20px; position: absolute; color: #FFF2AE; font-size: 55px; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; word-wrap: break-word">재(再)테크</div>
+
+	{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" style="left: 610px; top: 160px; position: absolute; color: #A4140B; font-family: 'Nanum Gothic', sans-serif; font-size: 18px; font-weight: 700; " {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div style="width: 100%; height: 100%; position: relative; background: #EFE6C9;">
+	<form method="POST">
+		{% csrf_token %}
+	<!--로그인 화면-->
+    <div style="width: 450px; height: 650px; left: 570px; top: 100px; border-radius: 80px; position: absolute; background: #545E55; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+    		<!-- 버튼 스타일 -->
+    		<a href="{% url 'login' %}"><button class="darken-image-button" type="button" style="background: none; border: none; padding: 0; right: 0px; top: 0px; position: absolute; "><img src="https://i.imgur.com/qKnTVYd.png" title="닫기" alt="닫기" style="width: 60px; height: 60px; cursor: pointer;" /></button></a>
+
+    	<div style="left: 120px; top: 90px; position: absolute; color: #FFF2AE; font-size: 50px; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; word-wrap: break-word">MEMBER
+     	</div>
+
+    	<!--이름 입력란 크기-->
+    	<input name="username" type="text" placeholder="이름" style="width: 385px; height: 58px; left: 30px; top: 190px; position: absolute; background: white; border-radius: 12px; border: 0.50px #121212 solid; color: #4A5D4C; font-size: 20px; font-family: 'Nanum Gothic', sans-serif; font-weight: 600; line-height: 21px; word-wrap: break-word">
+
+    	<!--아이디 입력란 크기-->
+    	<input name="user_id" type="text" placeholder="아이디" style="width: 385px; height: 58px; left: 30px; top: 270px; position: absolute; background: white; border-radius: 12px; border: 0.50px #121212 solid; color: #4A5D4C; font-size: 20px; font-family: 'Nanum Gothic', sans-serif; font-weight: 600; line-height: 21px; word-wrap: break-word">
+
+    	<!--비밀번호 입력란 크기-->
+    	<input name="user_password" type="password" placeholder="비밀번호" style="width: 385px; height: 58px; left: 30px; top: 350px; position: absolute; background: white; border-radius: 12px; border: 0.50px #121212 solid; color: #4A5D4C; font-size: 20px; font-family: 'Nanum Gothic', sans-serif; font-weight: 600; line-height: 21px; word-wrap: break-word">
+
+    	<!--비밀번호 확인 입력란 크기-->
+    	<input name="user_password_c" type="password" placeholder="비밀번호 확인" style="width: 385px; height: 58px; left: 30px; top: 430px; position: absolute; background: white; border-radius: 12px; border: 0.50px #121212 solid; color: #4A5D4C; font-size: 20px; font-family: 'Nanum Gothic', sans-serif; font-weight: 600; line-height: 21px; word-wrap: break-word">
+
+
+    	<button type="submit" class="btn btn-primary" style="width: 180px; height: 58px; left: 135px; top: 530px; position: absolute; background: #EED7B4; border: none; border-radius: 15px ; backdrop-filter: blur(12px); text-align: center; color: #4A5D4C; font-size: 25px; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; line-height: 21px; word-wrap: break-word; cursor: pointer;">
+		회원가입</button>
+		
+    </div>
+	</form>
+</div>
+
+</body>
+</html>

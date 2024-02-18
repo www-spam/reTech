@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+        #box1 {
+            background-color : #4A5D4C;
+            border-radius: 30px;
+            border-style: solid;
+            border-width: 6px;
+            border-color: #FCE152;
+        }
+        #question{
+            border-radius: 5px;
+            background-color: whitesmoke;
+            padding: 20px 40px 20px 40px;
+            margin: 30px 50px;
+        }
+    </style>
+
+<div style="width: 100%; height: 90px; left: 0px; top: 0px; right: 0px; background: #4A5D4C; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)"></div>
+<!--글씨-->
+<div style="left: 30px; top: 20px; position: absolute; color: #FFF2AE; font-size: 55px; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; word-wrap: break-word">만족도 조사
+</div>
+
+<div>
+    <a href="{% url 'home_login' %}"><button class="darken-image-button" type="button" style="background: none; border: none; padding: 0; right: 30px; top: 21px; position: absolute; "><img src="https://i.imgur.com/0Jz8ZBm.png" title="뒤로가기" alt="뒤로가기" style= "width: 65px; height: 65px; cursor: pointer;" /></a></button>
+  </div>
+
+<div style="width: 100%; height: 100vh; left: 0px; right: 0px; background: #DDD6BE; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)"></div>
+<div style="left: 40px; top: 90px; position: absolute; color: #4A5D4C; font-size: 35px; font-family: 'Nanum Gothic', sans-serif; font-weight: 700; word-wrap: break-word">
+    {% if latest_question_list %}
+    <ul style="color: #4A5D4C;">
+    {% for question in latest_question_list %}
+    <div style="left: 0px;">
+        <li><a style= "font-size: 20px; color: #4A5D4C; letter-spacing: 1.5px; line-height: 3;" href="{% url 'survey:detail' question.id %}">
+            {{ question.question_text }}
+        </a></li></div>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>No survey are available.</p>
+    {% endif %}
+</div>
+</body>
