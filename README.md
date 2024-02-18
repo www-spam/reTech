@@ -2,6 +2,7 @@
 2023 제10회 SW개발보안 경진대회 소개딩 - 행정안전부장관상수상
 
 
+    
 ## 🙌 TEAM  
 넷이 왔어요 
 
@@ -82,14 +83,19 @@
 ![image](https://github.com/www-spam/reTech/assets/102578109/786775c2-0c81-4045-9523-216bc41cd796)
 ![image](https://github.com/www-spam/reTech/assets/102578109/df406eb2-9c62-4f73-a7a9-31ea3f6c6e40)
 
+<br>
+
 상세정보 보러가기 👉 카카오맵의 정보로 이동, 영업시간 및 후기등을 볼 수 있음
+
+<br>
 
 ![image](https://github.com/www-spam/reTech/assets/102578109/78d5112b-4896-418a-b22a-e5e00055adc4)
 ## [제로웨이스트]
-
+<br>
 
 ![image](https://github.com/www-spam/reTech/assets/102578109/223de928-ad83-4a42-9801-175cab0c59a0)
 ## [네프론]
+<br>
 
 ![image](https://github.com/www-spam/reTech/assets/102578109/98c68d8a-702c-4a70-b30d-955b208cd619)
 ![image](https://github.com/www-spam/reTech/assets/102578109/57bc4bbc-1003-4ed8-9c5e-1d29fea92b39)
@@ -97,6 +103,7 @@
 각 위치에 있는 네프론 기기의 사진 정보를 볼 수 있음
  
 ## [재활용센터]
+<br>
 
 ![image](https://github.com/www-spam/reTech/assets/102578109/66f1bbc1-9676-4b8f-a1ed-3f49237bc663)
 ![image](https://github.com/www-spam/reTech/assets/102578109/112daf3c-8191-4503-9078-9274751a8aaa)
@@ -107,16 +114,31 @@
 <details><summary>미니 게임
 </summary>
 
+## [알맞은 쓰레기통으로 드래그하지 못할 시]
+<br>
+
 ![image](https://github.com/www-spam/reTech/assets/102578109/832b708c-2146-4314-9d54-442d14840b52)
 ![image](https://github.com/www-spam/reTech/assets/102578109/0002b0c9-b17b-4905-a242-b773f3f109d7)
 
+우측 하단 : 남은 쓰레기 수 
 
-알맞은 쓰레기통으로 드래그하지 못할 시에 좌측 하단에 -10점씩 부여되며, 올바른 재활용 방법을 알려주는 alert창 이벤트 발생
+좌측 하단 : 스코어 보드
+
+<br>
+
+좌측 하단 스코어 보드에 -10점씩 부여되며, 올바른 재활용 방법을 알려주는 alert창 이벤트 발생
+
+<br>
+
+
+## [알맞은 쓰레기통으로 드래그했을 경우]
+<br>
  
 ![image](https://github.com/www-spam/reTech/assets/102578109/d18b02aa-5b55-492e-bde0-6c441128b2bb)
 
-알맞은 쓰레기통으로 드래그했을 경우
 
+
+<br>
 
 
 
@@ -132,11 +154,26 @@
 <details><summary>로그인
 </summary>
 
+
+
 ![image](https://github.com/www-spam/reTech/assets/102578109/e520facd-fecf-4cd9-9597-0248b64c0662)
-챗봇 아이콘 클릭시 로그인
+
 ![image](https://github.com/www-spam/reTech/assets/102578109/663dde0e-e086-4640-9f5b-436aae6db3c6)
+
+
+## [로그인 시]
+
+<br>
+
 ![image](https://github.com/www-spam/reTech/assets/102578109/2d014e7b-d91e-4344-a80a-f99aaf53a6e1)
+
+<br>
+
+
 로그인 시에만 만족도 조사 게시판 아이콘 활성화
+
+<br>
+
 </details>
 
 <details><summary>챗봇
@@ -163,8 +200,21 @@ openai api key 를 활용한 챗봇
 ![image](https://github.com/www-spam/reTech/assets/102578109/9d530c3d-bbe0-40f9-b11a-d8f5c8a1e9a8)
 ![image](https://github.com/www-spam/reTech/assets/102578109/3cbd8c54-db47-4189-a959-18922b7c4644)
 
+<br>
+
 웹 서비스에 대한 만족도를 파악하기 위한 설문조사
+
+<br>
 </details>
+
+
+
+
+
+
+
+
+
 
 
 
